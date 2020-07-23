@@ -26,7 +26,7 @@ SECRET_KEY = getenv('DJANGO_SECRET_KEY', 'n0t-s0-s3cret-def4ault')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'samysam2099.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
