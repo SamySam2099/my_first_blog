@@ -1,32 +1,24 @@
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-</head>
-<body>
-<center><header class ="page-header">
+{%extends 'blog/base.html' %}
 
-    <h1>Welcome to my Blog</h1>
-    <p>Scroll down to read the posts!</p>
-</header></center>
-<div class="content-container">
-    <div class="row">
-        <div class="col-md-8">
-            {% for post in posts %}
-                <div class="post">
-                    <div class="date">
-                        <p>published: {{ post.published_date }}</p>
-                    </div>
-                    <h2><a href="">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-            {% endfor %}
+{% block content %}
+    {% for post in posts %}
+
+        <div class="post">
+            {% if post.image %}
+            <div class="post_image">
+                <img src ="{{ post.image.url }}" alt="">
+            </div>
+            {% endif %}
+            <div class="post_btn">
+                <button type="submit" class="btn btn-big"><a href ="{%url 'post_detail' pk=post.pk %}"><h1>Read More...</h1></a></button>
+
+            </div>
+            <div class="date">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-    </div>
-</div>
-</body>
-</html>
+
+    {% endfor %}
+{% endblock %}

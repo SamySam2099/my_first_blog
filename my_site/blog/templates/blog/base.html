@@ -1,0 +1,165 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samuel Irsai</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" rel="stylesheet">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
+</head>
+<body>
+<center><header class ="page-header" id="header">
+    <h1 class ="animated_text" id="animated_text_title">Welcome to my Blog</h1>
+    <p class ="animated_text">Scroll down to read the posts!</p>
+    <!-- Night MODE -->
+
+<label>
+    <input type ="checkbox" id="checked" onclick = "Day_Night_Mode()">
+    <span class ="check"></span>
+
+</label>
+
+
+<!----------------->
+
+
+</header></center>
+
+<div class="content-container" id="content-container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+<!-- footer -->
+<div class = "footer" id ="footer">
+    <div class = "footer-content">
+        <div class = "footer-section about">
+            <h1 class="logo-text"><span>Samuel</span>Irsai</h1>
+            <p>
+                My name is Samuel Irsai and this is my website. It serves as a sample of my work designed for the
+                Bridge CourseWork for the University of Birmingham - Year 1.
+            </p>
+        <div class="contact">
+            <span><i class = "fas fa-phone"></i> &nbsp; 123-456-789</span>
+            <span><i class = "fas fa-envelope"></i> &nbsp; sxi983@student.bham.ac.uk</span>
+        </div>
+        <div class="socials">
+            <a href = "#"><i class = "fab fa-facebook" id="facebook"></i></a>
+            <a href = "#"><i class = "fab fa-instagram" id="instagram"></i></a>
+            <a href = "#"><i class = "fab fa-twitter" id="twitter"></i></a>
+            <a href = "#"><i class = "fab fa-youtube" id="youtube"></i></a>
+
+        </div>
+        </div>
+        <div class = "footer-section links">
+            <h2 id="dark_link">Quick links</h2>
+            <br>
+            <ul>
+                <a href="#" id="dark_link1">
+                    <li>First Post</li>
+                </a>
+                <a href="#" id="dark_link2">
+                    <li>Second Post</li>
+                </a>
+                <a href="#" id="dark_link3">
+                    <li>Third Post</li>
+                </a>
+            </ul>
+
+        </div>
+        <div class = "footer-section contact-form">
+            <h2 id="contact-me">Contact me</h2>
+            <br>
+            <form action="post_list.html" method = "post">
+                <input type = "email" name="email" class ="text-input contact-input" placeholder="Your email address...">
+                <br>
+                <textarea name="message" class ="text-input contact-input" placeholder="Your message..."></textarea>
+                <br>
+                <button type="submit" class="btn btn-big">
+                    <i class ="fas fa-envelope"></i>
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+
+    </div>
+    <div class = "footer-bottom">
+        &copy; samysam2099.pythonanywhere.com | Designed by Samuel Irsai
+    </div>
+</div>
+<!--//footer -->
+</div>
+</body>
+
+<!---JAVASCRIPT ------->
+
+<script>
+    function Day_Night_Mode(){
+
+        activated = document.getElementById("checked").checked;
+        if (activated){
+            var elements = document.getElementsByClassName("post");
+            for ( i = 0 ; i < elements.length; i++){
+                elements[i].style.backgroundColor = "#eee";
+                elements[i].style.color = "black";
+                elements[i].style.transition = "all 2s";
+            }
+
+            document.getElementById("footer").style.backgroundColor = "#eee";
+            document.getElementById("content-container").style.backgroundColor = "white";
+
+            document.getElementById("footer").style.color = "black";
+            document.getElementById("dark_link").style.color = "black";
+
+            document.getElementById("dark_link1").style.color = "black";
+            document.getElementById("dark_link2").style.color = "black";
+            document.getElementById("dark_link3").style.color = "black";
+
+            document.getElementById("facebook").style.color = "black";
+            document.getElementById("instagram").style.color = "black";
+            document.getElementById("twitter").style.color = "black";
+            document.getElementById("youtube").style.color = "black";
+
+            document.getElementById("contact-me").style.color = "black";
+            document.getElementById("footer").style.transition = "all 2s";
+            document.getElementById("content-container").style.transition = "all 2s";
+
+         }
+         else{
+            var elements = document.getElementsByClassName("post");
+            for ( i = 0 ; i < elements.length; i++){
+                elements[i].style.backgroundColor = "#303036";
+                elements[i].style.color = "white";
+                elements[i].style.transition = "all 2s";
+            }
+            document.getElementById("footer").style.backgroundColor = "#303036";
+            document.getElementById("content-container").style.backgroundColor = "#0b0a08";
+
+            document.getElementById("footer").style.color = "white";
+            document.getElementById("dark_link").style.color = "white";
+
+            document.getElementById("dark_link1").style.color = "white";
+            document.getElementById("dark_link2").style.color = "white";
+            document.getElementById("dark_link3").style.color = "white";
+
+            document.getElementById("facebook").style.color = "white";
+            document.getElementById("instagram").style.color = "white";
+            document.getElementById("twitter").style.color = "white";
+            document.getElementById("youtube").style.color = "white";
+
+            document.getElementById("contact-me").style.color = "white";
+            document.getElementById("footer").style.transition = "all 2s";
+            document.getElementById("content-container").style.transition = "all 2s";
+         }
+    }
+</script>
+
+</html>
