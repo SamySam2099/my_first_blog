@@ -77,11 +77,9 @@ color:white;
 }
 
 .post{
-    padding-top:100px;
-    margin-right:35%;
+    padding-top: 100px;
+    margin-right: 35%;
     background-color: #303036;
-    text-overflow: ellipsis;
-
 }
 
 /* FOOTER */
